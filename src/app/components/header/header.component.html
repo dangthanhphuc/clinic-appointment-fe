@@ -1,0 +1,42 @@
+<div class="header">
+    <header class="m-container">
+        <a href="/homepage" style="display: block; height: 30px; width: 120px;">
+            <img src="/assets/images/logo.jpg" alt="">
+        </a>
+        <div class="menu-container">
+            <a href="" class="menu-item">Đặt khám</a>
+            <a href="" class="menu-item">Hỏi đáp</a>
+            <a href="" class="menu-item">Tư vấn trực tiếp</a>
+            <div class="vertical-line"></div>
+            @if (userResponse == null) {
+            <div class="dropdown">
+                <a class="btn btn-notification" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <fa-icon [icon]="faBell" class="i-bell"></fa-icon>
+                </a>
+
+                <ul class="dropdown-menu  dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="btn btn-profile dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="avatar avatar--s">
+                        <img src="/assets/images/test.jpg" alt="">
+                    </div>
+                    <span>Phúc đặng</span>
+                </a>
+
+                <ul class="dropdown-menu  dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+            } @else {
+            <a href="" class="menu-item">Đăng ký</a>
+            <a href="" class="menu-item btn-login">Đăng nhập</a> }
+        </div>
+    </header>
+</div>
