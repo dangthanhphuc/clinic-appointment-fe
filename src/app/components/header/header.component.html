@@ -1,24 +1,62 @@
 <div class="header">
     <header class="m-container">
-        <a href="/homepage" style="display: block; height: 30px; width: 120px;">
+        <a href="/homepage" style="display: block; height: 45px; width: 130px;">
             <img src="/assets/images/logo.jpg" alt="">
         </a>
         <div class="menu-container">
-            <a href="" class="menu-item">Đặt khám</a>
+            <div class="dropdown">
+                <a href="#" class="menu-item d-block" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Đặt khám
+                </a>
+                <ul class="dropdown-menu dropdown-menu-start p-0 overflow-hidden shadow-custom">
+                    <li class="schedule-by">
+                        <a class="" href="#">Đặt khám bác sĩ <p>Đặt lịch khám không chờ đợi</p></a>
+                    </li>
+                    <li class="schedule-by">
+                        <a class="" href="#">Đặt khám bệnh viện <p>Đặt khám, thanh toán, nhận kết quả</p></a>
+                    </li>
+                    <li class="schedule-by">
+                        <a class="" href="#">Đặt khám phòng khám <p>Đa dạng chuyên khoa và dịch vụ</p></a>
+                    </li>
+                    <li class="schedule-by">
+                        <a class="dropdown-item-divider" href="#">Bạn cần hỗ trợ? Gọi ngay cho chúng tôi 1900-0000</a>
+                    </li>
+                </ul>
+            </div>
             <a href="" class="menu-item">Hỏi đáp</a>
-            <a href="" class="menu-item">Tư vấn trực tiếp</a>
+            <a href="" class="menu-item">Đăng ký bác sĩ</a>
             <div class="vertical-line"></div>
-            @if (userResponse == null) {
+            @if (userResponse != null) {
             <div class="dropdown">
                 <a class="btn btn-notification" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <fa-icon [icon]="faBell" class="i-bell"></fa-icon>
                 </a>
 
-                <ul class="dropdown-menu  dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                <div class="dropdown-menu dropdown-menu-start notification-dropdown overflow-hidden shadow-custom">
+                    <div class="notification-header">
+                        <h6 class="mb-0">Thông báo</h6>
+                        <a href="#" class="settings-icon">
+                            <fa-icon [icon]="faGear"></fa-icon>
+                        </a>
+                    </div>
+                    <div class="dropdown-divider m-0"></div>
+                    <ul class="notification-list">
+                        <li class="notification-item">
+                            <img src="đường/dẫn/đến/avatar1.jpg" alt="Avatar" class="avatar">
+                            <div class="notification-content">
+                                <p class="mb-0"><strong>Optimus</strong> đã tải lên: TÔI BỊ Killerqueen.213 CHO LEO CÂY</p>
+                                <small>56 giây trước</small>
+                            </div>
+                        </li>
+                        <li class="notification-item">
+                            <img src="đường/dẫn/đến/avatar2.jpg" alt="Avatar" class="avatar">
+                            <div class="notification-content">
+                                <p class="mb-0"><strong>Thầy Giáo Ba</strong> đã tải lên: XEM CKTG CÙNG THẦY BA | VKE vs PNG (GAME 1) Vòng Play-in [28.09.2024]</p>
+                                <small>16 giờ trước</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="dropdown">
                 <a class="btn btn-profile dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -28,15 +66,16 @@
                     <span>Phúc đặng</span>
                 </a>
 
-                <ul class="dropdown-menu  dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <ul class="dropdown-menu dropdown-menu-end overflow-hidden shadow-custom py-3">
+                    <li><a class="" href="#">Lịch khám</a></li>
+                    <li><a class="" href="#">Lịch sử thanh toán</a></li>
+                    <li><a class="" href="#">Thông tin cá nhân</a></li>
+                    <li><a class="logout" href="#">Đăng xuất</a></li>
                 </ul>
             </div>
             } @else {
-            <a href="" class="menu-item">Đăng ký</a>
-            <a href="" class="menu-item btn-login">Đăng nhập</a> }
+            <a [routerLink]="['/register']" class="menu-item">Đăng ký</a>
+            <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="menu-item btn-login">Đăng nhập</a> }
         </div>
     </header>
 </div>
