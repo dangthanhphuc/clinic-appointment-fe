@@ -11,7 +11,7 @@ div.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 88px;
+    padding: 12px 0;
 }
 
 .menu-container {
@@ -24,6 +24,7 @@ div.header {
     padding: 12px 16px;
     font-size: 14px;
     font-weight: 700;
+    border-radius: 8px;
 }
 
 .m-container .menu-container .vertical-line {
@@ -73,4 +74,144 @@ a.btn-profile {
 .avatar img {
     border-radius: 100%;
     object-fit: cover;
+}
+
+.shadow-custom {
+    box-shadow: 0 10px 70px #00000026;
+}
+
+.menu-item:hover {
+    color: rgb(25, 117, 220);
+    background-color: rgb(241, 245, 249);
+}
+
+.dropdown {
+    &:hover {
+        .dropdown-menu {
+            display: block;
+        }
+    }
+    &:focus-within {
+        .menu-item {
+            color: rgb(25, 117, 220);
+            background-color: rgb(241, 245, 249);
+        }
+    }
+    .dropdown-menu li.schedule-by {
+        &:not(:last-child):hover {
+            a {
+                background-color: rgb(241, 245, 249);
+                color: rgb(25, 117, 220);
+                border-radius: 8px;
+            }
+        }
+    }
+    .dropdown-menu li {
+        &:hover {
+            a {
+                background-color: rgb(241, 245, 249);
+                color: rgb(25, 117, 220);
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
+.custom-dropdown-menu {
+    padding: 12;
+}
+
+.dropdown-menu li.schedule-by {
+    margin-top: 16px;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    text-wrap: nowrap;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dropdown-menu li a p {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 0;
+    color: rgb(73, 47, 47);
+}
+
+.dropdown-menu li a.dropdown-item-divider {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 24px;
+    font-size: 14px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.dropdown-menu li a.dropdown-item-divider:hover {
+    color: rgb(25, 117, 220);
+}
+
+//
+.notification-dropdown {
+    width: 300px;
+    padding: 0;
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 12px;
+}
+
+.settings-icon {
+    color: #6c757d;
+}
+
+.notification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-content p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.notification-content small {
+    color: #6c757d;
+}
+
+.dropdown .dropdown-menu li:hover a.logout {
+    color: red;
 }
