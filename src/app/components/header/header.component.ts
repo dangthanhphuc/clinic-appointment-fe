@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faGear} from '@fortawesome/free-solid-svg-icons'
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -25,21 +26,19 @@ export class HeaderComponent implements OnInit{
   faBell = faBell;
   faGear = faGear;
   
-  userResponse!: UserResponse;
+  userResponse?: UserResponse;
 
   constructor(
     private localStorageService : LocalStorageService,
+    private userService : UserService,
     private router : Router
   ) {
-    
-    const user = localStorageService.getValueFromLocalStorage("user");
 
   }
-
+  
   ngOnInit(): void {
-    
+    this.userResponse = this.localStorageService.get("user");
   }
 
   
-
 }

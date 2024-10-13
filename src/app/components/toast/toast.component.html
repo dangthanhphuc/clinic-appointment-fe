@@ -1,0 +1,16 @@
+<div class="toast-container">
+    @for (toast of toasts; track toast) {
+    <div class="toasts" [ngClass]="{'toast--success': toast.type == 'success', 'toast--error': toast.type == 'error', 'toast--warning': toast.type == 'warning', 'toast--info': toast.type == 'info' }">
+        <div class="toast__icon">
+            <fa-icon [icon]="getIconForToastType(toast.type)"></fa-icon>
+        </div>
+        <div class="toast__body">
+            <h3 class="toast__title">{{toast.title}}</h3>
+            <p class="toast__msg">{{toast.message}}</p>
+        </div>
+        <div class="toast__close">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    }
+</div>

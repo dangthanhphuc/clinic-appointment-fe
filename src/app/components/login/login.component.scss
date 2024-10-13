@@ -1,0 +1,217 @@
+.login-register-container {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.main-header {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    width: 100%;
+    max-width: 1436px;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 26px 68px;
+    font: 700 14px Manrope, sans-serif;
+}
+
+.company-logo {
+    aspect-ratio: 3.25;
+    object-fit: contain;
+    width: 182px;
+    max-width: 100%;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: auto 0;
+}
+
+.nav-item {
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-divider {
+    width: 0;
+    height: 32px;
+    border-left: 1px solid #000;
+}
+
+.nav-item-bordered {
+    border-radius: 8px;
+    border: 1px solid #000;
+}
+
+.main-content {
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 135px 80px;
+}
+
+.login-section {
+    border-radius: 8px;
+    background-color: #fff;
+    display: flex;
+    width: 590px;
+    max-width: 100%;
+    flex-direction: column;
+    padding: 24px;
+    margin-bottom: -55px;
+}
+
+.login-tabs {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font: 700 14px Manrope, sans-serif;
+}
+
+.tab-button {
+    min-width: 240px;
+    flex: 1;
+    padding: 19px 59px;
+    font-weight: 700;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    border-bottom: 1px solid #1975dc;
+    color: #1975dc;
+}
+
+.login-form {
+    display: flex;
+    margin-top: 24px;
+    width: 100%;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-input {
+    border-radius: 12px;
+    background-color: #f2f3f7;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    font: 400 14px Manrope, sans-serif;
+}
+
+.user-type-dropdown {
+    margin-top: 24px;
+}
+
+.dropdown-select {
+    border-radius: 8px;
+    background-color: #fff;
+    width: 100%;
+    padding: 13px 20px;
+    font: 700 14px Manrope, sans-serif;
+    border: 1px solid #000;
+    appearance: none;
+    background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/d26a64efac54e11f9df23934f4d7aab3d7d0a7ecb1f5a1858fd8638863a8d1e4?placeholderIfAbsent=true&apiKey=6c2eea70bfa646e2b6b46499c290ad5e');
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+}
+
+.form-footer {
+    display: flex;
+    margin-top: 24px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.remember-password {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-input {
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-label,
+.forgot-password {
+    color: #000;
+    letter-spacing: 0.75px;
+    font: 700 14px Manrope, sans-serif;
+}
+
+.forgot-password {
+    color: #1975dc;
+    text-decoration: none;
+}
+
+.login-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.register-link {
+    margin-top: 24px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    font: 700 14px Manrope, sans-serif;
+}
+
+.register-now {
+    color: #1975dc;
+    text-decoration: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 991px) {
+    .main-header {
+        padding: 0 20px;
+    }
+    .main-nav {
+        max-width: 100%;
+    }
+    .main-content {
+        max-width: 100%;
+        padding: 100px 20px;
+    }
+    .login-section {
+        margin-bottom: 10px;
+        padding: 0 20px;
+    }
+    .tab-button {
+        padding: 0 20px;
+    }
+    .login-button {
+        max-width: 100%;
+    }
+    .register-link {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+}
