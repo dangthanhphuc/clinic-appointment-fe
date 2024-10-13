@@ -1,0 +1,120 @@
+.register-page {
+    background-color: #f9fafb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 135px 80px;
+    font-family: Manrope, sans-serif;
+}
+
+.register-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    width: 100%;
+    max-width: 590px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.register-tabs {
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 24px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 19px 0;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
+    &.active {
+        color: #1975dc;
+        border-bottom: 1px solid #1975dc;
+    }
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    border: 0;
+    background-color: #f2f3f7;
+    font-size: 14px;
+    letter-spacing: 0.75px;
+    color: #656b9f;
+    &::placeholder {
+        color: #656b9f;
+    }
+}
+
+.form-select {
+    appearance: none;
+    background-image: url('https://cdn.builder.io/api/v1/image/assets/TEMP/2f0c0099c7b02b702e9be68288904b66793b7925d9c543738dfc9ce8cba084ad?placeholderIfAbsent=true&apiKey=6c2eea70bfa646e2b6b46499c290ad5e');
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 24px;
+}
+
+.login-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    margin-top: 24px;
+    font-size: 14px;
+}
+
+.login-text {
+    color: #1975dc;
+    text-decoration: none;
+    font-weight: 700;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 991px) {
+    .register-container {
+        padding: 24px 20px;
+    }
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+.error-input {
+    border: 1px solid;
+    border-color: red;
+}

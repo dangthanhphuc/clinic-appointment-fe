@@ -14,7 +14,7 @@ export class LocalStorageService {
     this.localStorage = this.document.defaultView?.localStorage;
   }
 
-  saveValueToLocalStorage(key: string, value: any) : void {
+  save(key: string, value: any) : void {
     try {
       const valueJSON = JSON.stringify(value);
       this.localStorage?.setItem(key, valueJSON);
@@ -23,7 +23,7 @@ export class LocalStorageService {
     }
   }
 
-  getValueFromLocalStorage(key : string) : any | null {
+  get(key : string) : any | null {
     try {
       const valueJson = this.localStorage?.getItem(key);
 
@@ -42,7 +42,7 @@ export class LocalStorageService {
     }
   }
 
-  removeValueFromLocalStorage (key : string) : void{
+  remove (key : string) : void{
     try {
       this.localStorage?.removeItem(key);
     }

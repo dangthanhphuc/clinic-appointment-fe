@@ -1,1 +1,83 @@
-<p>register works!</p>
+<app-header></app-header>
+<main class="register-page">
+    <section class="register-container">
+        <div class="register-tabs">
+            <button [routerLink]="['/login']" class="tab-button">Đăng nhập</button>
+            <button class="tab-button active">Đăng ký</button>
+        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+            <div class="form-group form-floating">
+                <label for="username" class="visually-hidden">Nhập tài khoản</label>
+                <input id="username" formControlName="username" type="text" placeholder="Nhập tài khoản" class="form-input" [ngClass]="{'error-input': getFieldError('username')}" /> @if(getFieldError('username')) {
+                <div class="error-message">
+                    {{ getFieldError("username") }}
+                </div>
+                }
+            </div>
+            <div class="form-group">
+                <label for="password" class="visually-hidden">Nhập mặt khẩu</label>
+                <input id="password" formControlName="password" type="password" placeholder="Nhập mặt khẩu" class="form-input" [ngClass]="{'error-input': getFieldError('password')}" /> @if(getFieldError('password')) {
+                <div class="error-message">
+                    {{ getFieldError("password") }}
+                </div>
+                }
+            </div>
+            <div class="form-group">
+                <label for="retype_password" class="visually-hidden">Nhập lại mặt khẩu</label>
+                <input id="retype_password" formControlName="retype_password" type="password" placeholder="Nhập lại mặt khẩu" class="form-input" [ngClass]="{'error-input': getFieldError('retype_password')}" /> @if(this.registerForm.hasError('passwordMismatch')
+                || getFieldError('retype_password')) {
+                <div class="error-message">Mật khẩu không khớp !</div>
+                }
+            </div>
+            <div class="form-group">
+                <label for="name" class="visually-hidden">Nhập tên</label>
+                <input id="name" formControlName="name" type="text" placeholder="Nhập tên" class="form-input" [ngClass]="{'error-input': getFieldError('name')}" /> @if(getFieldError('name')) {
+                <div class="error-message">
+                    {{ getFieldError("name") }}
+                </div>
+                }
+            </div>
+            <div class="form-group">
+                <label for="email" class="visually-hidden">Nhập email</label>
+                <input id="email" formControlName="email" type="email" placeholder="Nhập email" class="form-input" />
+            </div>
+            <div class="form-group">
+                <label for="address" class="visually-hidden">Nhập địa chỉ</label>
+                <input id="address" formControlName="address" type="text" placeholder="Nhập địa chỉ" class="form-input" />
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber" class="visually-hidden">Nhập số diện thoại</label>
+                <input id="phoneNumber" formControlName="phoneNumber" type="tel" placeholder="Nhập số diện thoại" class="form-input" />
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth" class="visually-hidden">Nhập ngày sinh</label>
+                <input id="dateOfBirth" formControlName="dateOfBirth" type="date" placeholder="Nhập ngày sinh" class="form-input" [ngClass]="{'error-input': getFieldError('dateOfBirth')}" /> @if(getFieldError('dateOfBirth')) {
+                <div class="error-message">
+                    {{ getFieldError("dateOfBirth") }}
+                </div>
+                }
+            </div>
+            <div class="form-group">
+                <label for="gender" class="visually-hidden">Chọn giới tính</label>
+                <select id="gender" formControlName="gender" class="form-select" [ngClass]="{'error-input': getFieldError('gender')}">
+                    <option value="" disabled selected>Chọn giới tính</option>
+                    <option value="true">Nam</option>
+                    <option value="false">Nữ</option>
+                </select> @if(getFieldError('gender')) {
+                <div class="error-message">
+                    {{ getFieldError("gender") }}
+                </div>
+                }
+            </div>
+            <button type="submit" class="custom-btn-primary" [disabled]="registerForm.invalid">
+                Đăng ký
+            </button>
+        </form>
+        <div class="login-link">
+            <span>Đã có tài khoàn?</span>
+            <a [routerLink]="['/login']" class="login-text">Đăng nhập</a>
+        </div>
+    </section>
+
+</main>
+<app-footer></app-footer>
