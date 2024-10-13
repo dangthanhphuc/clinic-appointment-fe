@@ -21,22 +21,22 @@ export class RegisterPatientDTO {
 
     @IsString()
     @Matches(/^[0-9]{12}$/, {message: 'phone number must be 12 digits'})
-    phoneNumber: string;
+    phone_number: string;
 
     @IsDate()
-    dateOfBirth: Date;
+    date_of_birth: Date;
 
     @IsBoolean()
     gender: boolean;
 
-    constructor() {
-        this.username = '';
-        this.password = '';
-        this.email = '';
-        this.name = '';
-        this.address = '';
-        this.phoneNumber = '';
-        this.dateOfBirth = new Date();
-        this.gender = false;
+    constructor(data : any) {
+        this.username = data.username;
+        this.password = data.password;
+        this.email = data.email;
+        this.name = data.name;
+        this.address = data.address;
+        this.phone_number = data.phoneNumber;
+        this.date_of_birth = data.dateOfBirth;
+        this.gender = data.gender;
     }
 }

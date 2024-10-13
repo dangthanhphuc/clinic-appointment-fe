@@ -15,7 +15,10 @@ img {
 a {
     text-decoration: none;
     color: black;
-    ;
+}
+
+p {
+    margin: 0;
 }
 
 ul {
@@ -28,6 +31,26 @@ ul {
     position: relative;
     max-width: 1280px;
     margin: 0 auto;
+}
+
+.custom-btn-primary {
+    border-radius: 4px;
+    background-color: #1975dc;
+    margin-top: 24px;
+    width: 100%;
+    padding: 14px 20px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.75px;
+    font: 700 14px Manrope, sans-serif;
+    border: none;
+    cursor: pointer;
+    &:disabled {
+        background-color: #cccccc;
+        color: #666666;
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
 }
 
 // $primary-color: rgb(25, 117, 220);
