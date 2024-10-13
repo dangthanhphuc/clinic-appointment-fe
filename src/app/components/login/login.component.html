@@ -1,1 +1,43 @@
-<p>login works!</p>
+<app-header></app-header>
+<div class="login-register-container">
+    <main class="main-content">
+        <section class="login-section">
+            <div class="login-tabs">
+                <button class="tab-button active">Đăng nhập</button>
+                <button [routerLink]="['/register']" class="tab-button">Đăng ký</button>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+                <div class="form-group">
+                    <label for="username" class="visually-hidden">Nhập tài khoản</label>
+                    <input type="text" id="username" formControlName="username" class="form-input" placeholder="Nhập tài khoản" />
+                </div>
+                <div class="form-group">
+                    <label for="password" class="visually-hidden">Nhập mặt khẩu</label>
+                    <input type="password" id="password" formControlName="password" class="form-input" placeholder="Nhập mặt khẩu" />
+                </div>
+                <div class="user-type-dropdown">
+                    <label for="userType" class="visually-hidden">Chọn người dùng</label>
+                    <select id="userType" formControlName="userType" class="dropdown-select">
+                        <option value="">Chọn người dùng</option>
+                        <option value="patient">Bệnh nhân</option>
+                        <option value="doctor">Bác sĩ</option>
+                        <option value="manager">Quản lý</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="form-footer">
+                    <div class="remember-password">
+                        <input type="checkbox" id="rememberPassword" formControlName="rememberPassword" class="checkbox-input" />
+                        <label for="rememberPassword" class="checkbox-label">Ghi nhớ mật khẩu</label>
+                    </div>
+                    <a href="#" (click)="forgotPassword()" class="forgot-password">Quên mật khẩu ?</a>
+                </div>
+                <button type="submit" class="custom-btn-primary" [disabled]="loginForm.invalid">Đăng nhập</button>
+            </form>
+            <p class="register-link">
+                Chưa có tài khoàn? <a [routerLink]="['/register']" routerLinkActive="router-link-active" class="register-now">Đăng ký ngay</a>
+            </p>
+        </section>
+    </main>
+</div>
+<app-footer></app-footer>

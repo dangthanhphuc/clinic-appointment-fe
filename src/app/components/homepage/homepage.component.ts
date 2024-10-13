@@ -11,7 +11,7 @@ import { SpecialtyService } from '../../services/specialty.service';
 import { SpecialtyResponse } from '../../responses/specialty.response';
 import { LocationResponse } from '../../responses/location.response';
 import { LocationService } from '../../services/location.service';
-import { FacilityType } from '../../enums/facility-type';
+import { MedicalFacilityType } from '../../enums/facility-type';
 
 @Component({
   selector: 'app-homepage',
@@ -77,8 +77,8 @@ export class HomepageComponent implements OnInit{
     this.locationService.locations$.subscribe({
       next: (response : ResponseObject) => {
         response.data.forEach((location : LocationResponse) => {
-          const type = location.facility.type;
-          if(type == FacilityType.HOSPITAL){
+          const type = location.medical_facility.type;
+          if(type == MedicalFacilityType.HOSPITAL){
             this.hospitals.push(location);
             return;
           }

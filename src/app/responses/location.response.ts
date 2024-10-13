@@ -1,4 +1,5 @@
-import { FacilityResponse } from "./facility.response";
+
+import { MedicalFacilityResponse } from "./medical-facility.response";
 
 export class LocationResponse {
     id : number;
@@ -8,7 +9,7 @@ export class LocationResponse {
     img_url : string;
     phone_number : string;
     description : string;
-    facility : FacilityResponse;
+    medical_facility : MedicalFacilityResponse;
 
     constructor(data : any) {
         this.id = data.id;
@@ -18,7 +19,7 @@ export class LocationResponse {
         this.img_url = data.img_url;
         this.phone_number = data.phone_number;
         this.description = data.description;
-        this.facility = data.facility;
+        this.medical_facility = data.medical_facility;
     }
 
 }
