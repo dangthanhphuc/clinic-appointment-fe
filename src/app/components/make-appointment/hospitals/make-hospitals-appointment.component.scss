@@ -1,0 +1,119 @@
+.hospital-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Manrope, sans-serif;
+    text-align: center;
+    justify-content: center;
+}
+
+.hospital-content {
+    display: flex;
+    width: 896px;
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    padding: 40px 0;
+}
+
+.hospital-header {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding: 0 24px 40px;
+    @media (max-width: 991px) {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+}
+
+.hospital-title {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin: 0;
+    @media (max-width: 991px) {
+        max-width: 100%;
+    }
+}
+
+.hospital-subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0;
+}
+
+.hospital-list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    font-size: 18px;
+    line-height: 32px;
+    justify-content: start;
+    list-style-type: none;
+    padding: 0;
+    @media (max-width: 991px) {
+        max-width: 100%;
+    }
+}
+
+.hospital-item {
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: start;
+    flex-wrap: wrap;
+    padding: 16px;
+    &:not(:first-child) {
+        border-top: 1px solid #e5e7eb; // Bạn có thể điều chỉnh màu sắc và độ dày của border
+    }
+     :hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    @media (max-width: 991px) {
+        max-width: 100%;
+    }
+}
+
+.hospital-image {
+    aspect-ratio: 1.01;
+    object-fit: contain;
+    object-position: center;
+    width: 97px;
+    align-self: start;
+}
+
+.hospital-details {
+    display: flex;
+    min-width: 240px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    flex: 1;
+    flex-basis: 0%;
+    padding: 0 12px;
+    @media (max-width: 991px) {
+        max-width: 100%;
+    }
+}
+
+.hospital-name {
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.hospital-address {
+    color: rgba(102, 115, 132, 0.8);
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}

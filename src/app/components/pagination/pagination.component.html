@@ -1,0 +1,19 @@
+<div class="pagination-wrapper">
+    <div class="pagination">
+        <button class="pagination-btn" [disabled]="currentPage === 1" (click)="selectPage(1)">
+          <<
+        </button>
+        <button class="pagination-btn" [disabled]="currentPage === 1" (click)="selectPage(currentPage - 1)">
+          <
+        </button> @for(page of visiblePages; track $index) {
+        <button class="pagination-btn" [ngClass]="{'active': currentPage == page}" (click)="selectPage(page)">
+                {{ page }}
+              </button> }
+        <button class="pagination-btn" [disabled]="currentPage === totalPages()" (click)="selectPage(currentPage + 1)">
+          >
+        </button>
+        <button class="pagination-btn" [disabled]="currentPage === totalPages()" (click)="selectPage(totalPages())">
+          >>
+        </button>
+    </div>
+</div>

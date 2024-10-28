@@ -5,18 +5,18 @@
         </a>
         <div class="menu-container">
             <div class="dropdown">
-                <a href="#" class="menu-item d-block" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="#" class="menu-item d-block dat-kham" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Đặt khám
                 </a>
                 <ul class="dropdown-menu dropdown-menu-start p-0 overflow-hidden shadow-custom">
                     <li class="schedule-by">
-                        <a class="" href="#">Đặt khám bác sĩ <p>Đặt lịch khám không chờ đợi</p></a>
+                        <a class="" routerLink="/make-appointment/doctors" (click)="closeDropdown()">Đặt khám bác sĩ <p>Đặt lịch khám không chờ đợi</p></a>
                     </li>
                     <li class="schedule-by">
-                        <a class="" href="#">Đặt khám bệnh viện <p>Đặt khám, thanh toán, nhận kết quả</p></a>
+                        <a class="" routerLink="/make-appointment/hospitals" (click)="closeDropdown()">Đặt khám bệnh viện <p>Đặt khám, thanh toán, nhận kết quả</p></a>
                     </li>
                     <li class="schedule-by">
-                        <a class="" href="#">Đặt khám phòng khám <p>Đa dạng chuyên khoa và dịch vụ</p></a>
+                        <a class="" routerLink="/make-appointment/clinics" (click)="closeDropdown()">Đặt khám phòng khám <p>Đa dạng chuyên khoa và dịch vụ</p></a>
                     </li>
                     <li class="schedule-by">
                         <a class="dropdown-item-divider" href="#">Bạn cần hỗ trợ? Gọi ngay cho chúng tôi 1900-0000</a>
@@ -70,7 +70,7 @@
                     <li><a class="" href="#">Lịch khám</a></li>
                     <li><a class="" href="#">Lịch sử thanh toán</a></li>
                     <li><a class="" href="#">Thông tin cá nhân</a></li>
-                    <li><a class="logout" href="#">Đăng xuất</a></li>
+                    <li><a class="logout" (click)="logout()">Đăng xuất</a></li>
                 </ul>
             </div>
             } @else {
