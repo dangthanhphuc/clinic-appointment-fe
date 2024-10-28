@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
   ) {
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required, Validators.minLength(8)],
+      password: ['', Validators.required, Validators.minLength(6)],
       retype_password : ['', Validators.required],
       name: ['', Validators.required],
       email: ['', Validators.email],
@@ -61,7 +61,7 @@ export class RegisterComponent implements OnInit {
         return 'Email không hợp lệ';
       }
       if(control.errors?.['minlength']) {
-        return 'Mật khẩu phải ít nhất 8 ký tự';
+        return 'Mật khẩu phải ít nhất 6 ký tự';
       }
     }
     return '';

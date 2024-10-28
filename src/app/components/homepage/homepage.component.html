@@ -1,132 +1,117 @@
-<app-header></app-header>
-<div style="margin-top: 70.6px;">
-    <div class="banner">
-        <div class="information-search">
-            <div class="information">
-                <h1>Ứng dụng đặt khám</h1>
-                <p style="line-height: 32px;">Đặt khám với hơn 600 bác sĩ, 25 bệnh viện, 100 phòng khám trên YouMed để có số thứ tự và khung giờ khám trước.</p>
-            </div>
-            <div class="search">
-                <input type="text" class="rounded-pill search-input" placeholder="Bác sĩ, bệnh viện, phòng khám...">
-                <button class="button" class="btn search-button">
-                    <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+<app-banner></app-banner>
+
+<div class="content-homepage" style="background-color: white;">
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2 class="fw-bold">Đặt lịch khám trực tuyến</h2>
+            <p class="fw-light">Tìm Bác sĩ chính xác - Đặt lịch khám dễ dàng</p>
+        </div>
+        <div class="booking-doctor space-section">
+            <div class="title-section">
+                <div class="title">
+                    <h5 style="font-size: 20px; font-weight: 700;">Đặt khám bác sĩ</h5>
+                    <p>Phiếu khám kèm số thứ tự và thời gian của bạn được xác nhận.</p>
+                </div>
+                <button type="button" class="btn btn-more-0 rounded-pill" [routerLink]="['/make-appointment/doctors']">
+                    Xem thêm
                 </button>
             </div>
-        </div>
-        <div class="banner-image">
-            <img src="/assets/images/banner.jpg" alt="">
-        </div>
-    </div>
-    <div class="content-homepage">
-        <div class="container">
-            <div class="py-5 text-center">
-                <h2 class="fw-bold">Đặt lịch khám trực tuyến</h2>
-                <p class="fw-light">Tìm Bác sĩ chính xác - Đặt lịch khám dễ dàng</p>
-            </div>
-            <div class="booking-doctor space-section">
-                <div class="title-section">
-                    <div class="title">
-                        <h5 style="font-size: 20px;">Đặt khám bác sĩ</h5>
-                    </div>
-                    <button type="button" class="btn btn-more-0 rounded-pill">
-                        Xem thêm
-                    </button>
-                </div>
-                <div class="items">
-                    @for (doctor of doctors; track $index) {
-                    <div class="card item doctor-item">
-                        <img [src]="doctor.user.img_url" alt="..." class="card-img-top card-image-custom">
+            <div class="items">
+                @for (doctor of doctors; track $index) {
+                <div class="card item doctor-item">
+                    <!-- Test image -->
+                    <img src="http://dummyimage.com/241x100.png/cc0000/ffffff" alt="..." class="card-img-top card-image-custom">
 
-                        <div class="card-body section-body">
-                            <h4 class="card-title-custom">{{doctor.user.name}}</h4>
-                            <p class="card-text m-0">{{doctor.position}}</p>
-                            <p class="card-text" style="font-size: 14px;">{{doctor.location.name}}</p>
-                        </div>
-                        <div class="section-footer">
-                            <a href="#" class="card-link">
-                                <span>Đặt khám ngay</span>
-                            </a>
-                        </div>
+                    <div class="card-body section-body">
+                        <h4 class="card-title-custom">{{doctor.user.name}}</h4>
+                        <p class="card-text m-0">{{doctor.position}}</p>
+                        <p class="card-text" style="font-size: 14px;">{{doctor.location.name}}</p>
                     </div>
-                    }
+                    <div class="section-footer">
+                        <a href="#" class="card-link">
+                            <span>Đặt khám ngay</span>
+                        </a>
+                    </div>
                 </div>
+                }
             </div>
-            <div class="booking-hospital space-section">
-                <div class="title-section">
-                    <div class="title">
-                        <h5 style="font-size: 20px;">Đặt khám bệnh viện</h5>
-                    </div>
-                    <button type="button" class="btn btn-more-0 rounded-pill">
-                        Xem thêm
-                    </button>
+        </div>
+        <div class="booking-hospital space-section">
+            <div class="title-section">
+                <div class="title">
+                    <h5 style="font-size: 20px; font-weight: 700;">Đặt khám bệnh viện</h5>
+                    <p>Đặt khám và thanh toán để có phiếu khám (thời gian, số thứ tự) trước khi đi khám các bệnh viện kết nối chính thức với YouMed. </p>
                 </div>
+                <button type="button" class="btn btn-more-0 rounded-pill" [routerLink]="['/make-appointment/hospitals']">
+                    Xem thêm
+                </button>
+            </div>
 
-                <div class="items">
-                    @for (hospital of hospitals; track $index) {
-                    <div class="card item position-relative">
-                        <img [src]="hospital.img_url" alt="..." class="card-img-top card-image-custom position-relative">
-                        <img [src]="hospital.img_url" alt="..." class="background-image">
-                        <div class="card-body" style=" flex: 0 0 auto; margin-top: 28px;">
-                            <p class="fs-6 fw-bold">{{hospital.name}}</p>
-                            <p>{{hospital.address}}</p>
-                        </div>
+            <div class="items">
+                @for (hospital of hospitals; track $index) {
+                <div class="card item position-relative">
+                    <img [src]="hospital.img_url" alt="..." class="card-img-top card-image-custom position-relative">
+                    <img [src]="hospital.img_url" alt="..." class="background-image">
+                    <div class="card-body" style=" flex: 0 0 auto; margin-top: 28px;">
+                        <p class="fs-6 fw-bold">{{hospital.name}}</p>
+                        <p>{{hospital.address}}</p>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        <div class="booking-clinic space-section">
+            <div class="title-section">
+                <div class="title">
+                    <h5 style="font-size: 20px; font-weight: 700;">Đặt khám phòng khám</h5>
+                    <p>Đa dạng phòng khám với nhiều chuyên khoa khác nhau như Sản - Nhi, Tai Mũi họng, Da Liễu, Tiêu Hoá...</p>
+                </div>
+                <button type="button" class="btn btn-more-0 rounded-pill" [routerLink]="['/make-appointment/clinics']">
+                    Xem thêm
+                </button>
+            </div>
+            <div class="items">
+                @for (clinic of clinics; track $index) {
+                <div class="card item">
+                    <img [src]="clinic.img_url" alt="..." class="card-img-top card-image-custom">
+                    <div class="card-body">
+                        <p class="fs-6 fw-bold">{{clinic.name}}</p>
+                        <p>{{clinic.address}}</p>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        <div class="booking-specialties space-section">
+            <div class="title-section">
+                <div class="title">
+                    <h5 style="font-size: 20px; font-weight: 700;">Đặt khám theo chuyên khoa</h5>
+                    <p>Danh sách bác sĩ, bệnh viện, phòng khám theo chuyên khoa</p>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    @for (specialty of specialtiesHead; track $index) {
+                    <div class="col-2 p-3 text-center specialty-item">
+                        <img [src]="'assets/images/specialties/' + getIcon(specialty.name)" alt="" class="h-auto icon-specialty">
+                        <p class="specialty-name">{{specialty.name}}</p>
                     </div>
                     }
                 </div>
-            </div>
-            <div class="booking-clinic space-section">
-                <div class="title-section">
-                    <div class="title">
-                        <h5 style="font-size: 20px;">Đặt khám phòng khám</h5>
-                    </div>
-                    <button type="button" class="btn btn-more-0 rounded-pill">
-                        Xem thêm
-                    </button>
-                </div>
-                <div class="items">
-                    @for (clinic of clinics; track $index) {
-                    <div class="card item">
-                        <img [src]="clinic.img_url" alt="..." class="card-img-top card-image-custom">
-                        <div class="card-body">
-                            <p class="fs-6 fw-bold">{{clinic.name}}</p>
-                            <p>{{clinic.address}}</p>
-                        </div>
-                    </div>
-                    }
-                </div>
-            </div>
-            <div class="booking-specialties space-section">
-                <div class="title-section">
-                    <div class="title">
-                        <h5 style="font-size: 20px;">Đặt khám theo chuyên khoa</h5>
-                    </div>
-                </div>
-                <div>
+                <div class="collapse" id="collapseMoreLess">
                     <div class="row">
-                        @for (specialty of specialtiesHead; track $index) {
+                        @for (specialty of specialties; track $index) {
                         <div class="col-2 p-3 text-center specialty-item">
-                            <img [src]="'/assets/images/specialties/' + getIcon(specialty.name)" alt="" class="h-auto icon-specialty">
+                            <img [src]="'assets/images/specialties/' + getIcon(specialty.name)" alt="" class="h-auto icon-specialty">
                             <p class="specialty-name">{{specialty.name}}</p>
                         </div>
                         }
                     </div>
-                    <div class="collapse" id="collapseMoreLess">
-                        <div class="row">
-                            @for (specialty of specialties; track $index) {
-                            <div class="col-2 p-3 text-center specialty-item">
-                                <img [src]="'/assets/images/specialties/' + getIcon(specialty.name)" alt="" class="h-auto icon-specialty">
-                                <p class="specialty-name">{{specialty.name}}</p>
-                            </div>
-                            }
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-more rounded-pill" data-bs-toggle="collapse" data-bs-target="#collapseMoreLess" aria-expanded="false" aria-controls="collapseExample" (click)="changeShowMore()">
-                        {{showMore ? "Thu gọn" : "Xem thêm"}}
-                    </button>
                 </div>
+                <button type="button" class="btn btn-more rounded-pill" data-bs-toggle="collapse" data-bs-target="#collapseMoreLess" aria-expanded="false" aria-controls="collapseExample" (click)="changeShowMore()">
+                    {{showMore ? "Thu gọn" : "Xem thêm"}}
+                </button>
             </div>
         </div>
     </div>
-
 </div>
-<app-footer></app-footer>
