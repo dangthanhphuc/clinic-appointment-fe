@@ -1,8 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { ResponseObject } from '../responses/api.response';
+import { MedicalFacilityType } from '../enums/facility-type';
+import { LocationResponse } from '../responses/location.response';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +17,19 @@ export class LocationService {
     private http : HttpClient
   ) { }
 
-  locations$ = <Observable<ResponseObject>> this.http.get<ResponseObject>(`${this.apiBaseUrl}`)
+  locations$ = <Observable<{hospitals: LocationResponse[], clinics: LocationResponse[]}>> this.http.get<ResponseObject>(`${this.apiBaseUrl}`)
   .pipe(
+    map( (response : ResponseObject) => {
+      const hospitals : LocationResponse[] = [];
+      const clinics : LocationResponse[] = [];
+      response.data.forEach((location : LocationResponse) => {
+        if(location.medical_facility.type === MedicalFacilityType.HOSPITAL)
+          hospitals.push(location);
+        else if(location.medical_facility.type === MedicalFacilityType.CLINIC)
+          clinics.push(location);
+      });
+      return {hospitals, clinics };
+    }),
     catchError(this.handleError)
   );
 

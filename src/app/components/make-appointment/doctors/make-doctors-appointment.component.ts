@@ -1,83 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-
-import { DoctorService } from '../../services/doctor.service';
-import { DoctorResponse } from '../../responses/doctor.response';
-import { ResponseObject } from '../../responses/api.response';
-import { SpecialtyService } from '../../services/specialty.service';
-import { SpecialtyResponse } from '../../responses/specialty.response';
-import { LocationResponse } from '../../responses/location.response';
-import { LocationService } from '../../services/location.service';
-import { MedicalFacilityType } from '../../enums/facility-type';
-import { BannerComponent } from '../banner/banner.component';
-import { RouterLink } from '@angular/router';
+import { DoctorResponse } from '../../../responses/doctor.response';
+import { DoctorService } from '../../../services/doctor.service';
+import { ResponseObject } from '../../../responses/api.response';
+import { SpecialtyResponse } from '../../../responses/specialty.response';
+import { SpecialtyService } from '../../../services/specialty.service';
 
 @Component({
-  selector: 'app-homepage',
+  selector: 'app-make-doctors-appointment',
   standalone: true,
-  imports: [
-    BannerComponent,
-    RouterLink
-  ],
-  templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.scss'
+  imports: [],
+  templateUrl: './make-doctors-appointment.component.html',
+  styleUrl: './make-doctors-appointment.component.scss'
 })
-export class HomepageComponent implements OnInit{
-
-  showMore = false;
-
+export class MakeDoctorsAppointmentComponent implements OnInit {
   doctors!: DoctorResponse[];
   specialties!: SpecialtyResponse[];
-  specialtiesHead!: SpecialtyResponse[];
-  hospitals: LocationResponse[] = [];
-  clinics: LocationResponse[] = [];
 
   constructor(
     private doctorService : DoctorService,
-    private specialtyService : SpecialtyService,
-    private locationService : LocationService
-  ) {
+    private specialtyService : SpecialtyService
+  ) {}
 
-  }
 
   ngOnInit(): void {
     this.getDoctors();
     this.getSpecialties();
-    this.getLocations();
-  }
-
-  getDoctors() : void {
-    this.doctorService.doctors$.subscribe({
-      next: (response : ResponseObject) => {
-        this.doctors = response.data;
-      },
-      error: (error : any) => {
-        console.log(error);
-      }
-    })
-  }
-
-  getSpecialties() : void {
-    this.specialtyService.specialties$.subscribe({
-      next: (response : ResponseObject) => {
-        this.specialties = response.data;
-        this.specialtiesHead = this.specialties.splice(0, 6);
-      },
-      error: (error : any) => {
-        console.log(error);
-      }
-    })
-  }
-
-  getLocations() : void {
-    this.locationService.locations$.subscribe({
-      next: (result : {hospitals: LocationResponse[], clinics: LocationResponse[]}) => {
-        this.hospitals = result.hospitals;
-        this.clinics = result.clinics;
-      },
-      error: (error : any) => {
-        console.log(error);
-      }
-    })
   }
 
   getIcon(name : string) : string {
@@ -167,8 +114,26 @@ export class HomepageComponent implements OnInit{
     return "Unknown";
   }
 
-  changeShowMore() {
-    this.showMore = !this.showMore;
+  getDoctors() : void {
+    this.doctorService.doctors$.subscribe({
+      next: (response : ResponseObject) => {
+        this.doctors = response.data;
+      },
+      error: (error : any) => {
+        console.log(error);
+      }
+    })
+  }
+
+  getSpecialties() : void {
+    this.specialtyService.specialties$.subscribe({
+      next: (response : ResponseObject) => {
+        this.specialties = response.data;
+      },
+      error: (error : any) => {
+        console.log(error);
+      }
+    })
   }
 
 }

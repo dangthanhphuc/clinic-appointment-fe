@@ -1,0 +1,21 @@
+<section class="clinic-section">
+    <div class="clinic-content">
+        <header class="clinic-header">
+            <h1 class="clinic-title">Đa dạng phòng khám</h1>
+            <p class="clinic-subtitle">Đặt khám dễ dàng và tiện lợi hơn với các phòng khám cùng nhiều chuyên khoa </p>
+        </header>
+        <ul class="clinic-list">
+            @for (clinic of visibleClinics; track $index) {
+            <li class="clinic-item">
+                <img [src]="clinic.img_url" [alt]="clinic.name" class="clinic-image" />
+                <div class="clinic-details">
+                    <h2 class="clinic-name">{{ clinic.name }}</h2>
+                    <p class="clinic-address">{{ clinic.address }}</p>
+                </div>
+            </li>
+            }
+        </ul>
+        <app-pagination [totalItems]="clinics.length" [pageSize]="pageSize" (valueChange)="onPageChange($event)">
+        </app-pagination>
+    </div>
+</section>
