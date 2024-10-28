@@ -11,11 +11,13 @@ import { ToastService } from '../../services/toast.service';
 import { TokenService } from '../../services/token.service';
 import { switchMap } from 'rxjs';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
+    CommonModule,
     RouterModule,
     ReactiveFormsModule,
     HeaderComponent,
@@ -52,10 +54,23 @@ export class LoginComponent {
     }
   }
 
+  getFieldError(fieldName : string) : string {
+    const control = this.loginForm.get(fieldName);
+    if(control && control.touched && control.invalid) {
+      if(control.errors?.['required']) {
+        return 'Trường này là bắt buộc';
+      }
+      if(control.errors?.['minlength']) {
+        return 'Mật khẩu phải ít nhất 6 ký tự';
+      }
+    }
+    return '';
+  }
+
   login(loginDTO : LoginDTO) : void {
     this.userService.login$(loginDTO).pipe(
       switchMap((response : ResponseObject) => {
-        if(response.statusCode == HttpStatusCode.Ok) {
+         if(response.statusCode == HttpStatusCode.Ok) {
           this.tokenService.setToken(response.data.token);
           // Gọi aip để lấy thông tin chi tiết user thông qua user id
           return this.userService.getUserDetails$(loginDTO.user_type);
@@ -75,7 +90,6 @@ export class LoginComponent {
         this.toastService.showToast("Lỗi", error.error.message, 'error');
       }
     })
-    
   }
   
 

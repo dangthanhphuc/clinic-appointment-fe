@@ -1,0 +1,21 @@
+<section class="hospital-section">
+    <div class="hospital-content">
+        <header class="hospital-header">
+            <h1 class="hospital-title">Đặt khám trực tuyến với các Bệnh viện</h1>
+            <p class="hospital-subtitle">Chủ động chọn lịch hẹn - Đi khám không đợi chờ</p>
+        </header>
+        <ul class="hospital-list">
+            @for (hospital of visibleHospitals; track $index) {
+            <li class="hospital-item">
+                <img [src]="hospital.img_url" [alt]="hospital.name" class="hospital-image" />
+                <div class="hospital-details">
+                    <h2 class="hospital-name">{{ hospital.name }}</h2>
+                    <p class="hospital-address">{{ hospital.address }}</p>
+                </div>
+            </li>
+            }
+        </ul>
+        <app-pagination [totalItems]="hospitals.length" [pageSize]="pageSize" (valueChange)="onPageChange($event)">
+        </app-pagination>
+    </div>
+</section>

@@ -1,0 +1,51 @@
+.banner {
+    position: relative;
+    background-color: rgb(25, 117, 220);
+    min-height: 520px;
+}
+
+.information-search {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    background-color: transparent;
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+}
+
+.information {
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+}
+
+.search {
+    position: relative;
+}
+
+.search-button {
+    position: absolute;
+    height: 100%;
+    right: 12px;
+}
+
+.search-button:active {
+    border-color: white;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    padding: 12px 60px 12px 24px;
+}
+
+.banner-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}

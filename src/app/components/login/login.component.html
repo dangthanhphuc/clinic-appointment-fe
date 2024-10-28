@@ -9,11 +9,19 @@
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
                 <div class="form-group">
                     <label for="username" class="visually-hidden">Nhập tài khoản</label>
-                    <input type="text" id="username" formControlName="username" class="form-input" placeholder="Nhập tài khoản" />
+                    <input type="text" id="username" formControlName="username" class="form-input" placeholder="Nhập tài khoản" [ngClass]="{'error-input': getFieldError('username')}" /> @if(getFieldError('username')) {
+                    <div class="error-message">
+                        {{ getFieldError("username") }}
+                    </div>
+                    }
                 </div>
                 <div class="form-group">
                     <label for="password" class="visually-hidden">Nhập mặt khẩu</label>
-                    <input type="password" id="password" formControlName="password" class="form-input" placeholder="Nhập mặt khẩu" />
+                    <input type="password" id="password" formControlName="password" class="form-input" placeholder="Nhập mặt khẩu" [ngClass]="{'error-input': getFieldError('password')}" /> @if(getFieldError('password')) {
+                    <div class="error-message">
+                        {{ getFieldError("password") }}
+                    </div>
+                    }
                 </div>
                 <div class="user-type-dropdown">
                     <label for="userType" class="visually-hidden">Chọn người dùng</label>

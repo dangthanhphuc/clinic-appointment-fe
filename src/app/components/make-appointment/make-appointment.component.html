@@ -1,0 +1,14 @@
+<app-banner></app-banner>
+<nav class="search-options">
+    <a class="search-option" routerLink="doctors" routerLinkActive="search-option--active" ariaCurrentWhenActive="page">
+        <fa-icon [icon]="faUserDoctor" class="me-3"></fa-icon> Đặt khám Bác sĩ</a>
+    <a class="search-option" routerLink="hospitals" routerLinkActive="search-option--active" ariaCurrentWhenActive="page">
+        <fa-icon [icon]="faHospital" class="me-3"></fa-icon> Đặt khám Bệnh viện</a>
+    <a class="search-option" routerLink="clinics" routerLinkActive="search-option--active" ariaCurrentWhenActive="page">
+        <fa-icon [icon]="faClinicMedical" class="me-3"></fa-icon> Đặt khám Phòng khám</a>
+</nav>
+<div class="content-homepage" style="background-color: white;">
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

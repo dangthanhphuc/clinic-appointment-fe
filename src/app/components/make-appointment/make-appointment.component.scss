@@ -1,0 +1,87 @@
+.banner {
+    position: relative;
+    background-color: rgb(25, 117, 220);
+    min-height: 520px;
+}
+
+.information-search {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    background-color: transparent;
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+}
+
+.information {
+    max-width: 600px;
+    margin: 0 auto;
+    color: white;
+}
+
+.search {
+    position: relative;
+}
+
+.search-button {
+    position: absolute;
+    height: 100%;
+    right: 12px;
+}
+
+.search-button:active {
+    border-color: white;
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    padding: 12px 60px 12px 24px;
+}
+
+.banner-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+// Navbar Options
+.search-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 120px;
+    background-color: white;
+    font: 700 14px Manrope, sans-serif;
+    color: #000;
+    text-align: center;
+    @media (max-width: 991px) {
+        padding: 0 20px;
+    }
+}
+
+.search-option {
+    flex: 1;
+    min-width: 240px;
+    padding: 16px 70px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1.6px solid rgb(219, 234, 254);
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s;
+    &--active {
+        color: #1975dc;
+        border-bottom: 1.6px solid #1975dc;
+    }
+    @media (max-width: 991px) {
+        padding: 16px 20px;
+    }
+}
