@@ -17,9 +17,9 @@ export class LocationService {
     private http : HttpClient
   ) { }
 
-  locations$ = <Observable<{hospitals: LocationResponse[], clinics: LocationResponse[]}>> this.http.get<ResponseObject>(`${this.apiBaseUrl}`)
+  locations$ = <Observable<{hospitals: LocationResponse[], clinics: LocationResponse[]}>> this.http.get<ResponseObject<LocationResponse[]>>(`${this.apiBaseUrl}`)
   .pipe(
-    map( (response : ResponseObject) => {
+    map( (response : ResponseObject<LocationResponse[]>) => {
       const hospitals : LocationResponse[] = [];
       const clinics : LocationResponse[] = [];
       response.data.forEach((location : LocationResponse) => {

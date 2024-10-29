@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
       withRouterConfig({
         paramsInheritanceStrategy: 'always',
       })
-    ), // Xem làm tiếp phân trang tới 3 trang
+    ),
     provideClientHydration(),
     provideHttpClient(
       withFetch(),

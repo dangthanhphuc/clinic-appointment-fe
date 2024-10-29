@@ -5,6 +5,7 @@ import { UserResponse } from '../responses/user.response';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ResponseObject } from '../responses/api.response';
 import { LoginDTO } from '../dtos/login.dto';
+import { LoginResponse } from '../responses/login.response';
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +23,12 @@ export class UserService {
 
   constructor(private http : HttpClient) { }
 
-  login$ = (loginDTO: LoginDTO) : Observable<ResponseObject> => {
-    return this.http.post<ResponseObject>(`${this.apiBaseUrl}/login`, loginDTO);
+  login$ = (loginDTO: LoginDTO) : Observable<ResponseObject<LoginResponse>> => {
+    return this.http.post<ResponseObject<LoginResponse>>(`${this.apiBaseUrl}/login`, loginDTO);
   }
 
-  getUserDetails$ = (userType : string) : Observable<ResponseObject> => {
-    return this.http.get<ResponseObject>(`${this.apiBaseUrl}/details/${userType}`);
+  getUserDetails$ = (userType : string) : Observable<ResponseObject<any>> => {
+    return this.http.get<ResponseObject<any>>(`${this.apiBaseUrl}/details/${userType}`);
   }
   
 }

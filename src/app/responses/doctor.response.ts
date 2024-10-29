@@ -1,4 +1,5 @@
 import { LocationResponse } from "./location.response";
+import { SpecialtyResponse } from "./specialty.response";
 import { UserResponse } from "./user.response";
 
 export class DoctorResponse {
@@ -8,6 +9,7 @@ export class DoctorResponse {
     years_of_experience : number;
     introduce : string;
     location : LocationResponse;
+    specialties : SpecialtyResponse[];
 
     constructor(data : any) {
         this.user = data.user;
@@ -15,5 +17,6 @@ export class DoctorResponse {
         this.years_of_experience = data.years_of_experience;
         this.introduce = data.introduce;
         this.location = data.location;
+        this.specialties = data.specialties.length > 0 ? data.specialties : [];
     }
 }

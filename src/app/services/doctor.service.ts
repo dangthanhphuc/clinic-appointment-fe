@@ -3,6 +3,7 @@ import { environment } from "../../environments/environment";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { catchError, Observable, throwError } from "rxjs";
 import { ResponseObject } from "../responses/api.response";
+import { DoctorResponse } from "../responses/doctor.response";
 
 @Injectable({
     providedIn: 'root'
@@ -16,10 +17,14 @@ export class DoctorService {
     ){}
 
 
-    doctors$ = <Observable<ResponseObject>> this.http.get<ResponseObject>(`${this.apiBaseUrl}`)
+    doctors$ = <Observable<ResponseObject<DoctorResponse[]>>> this.http.get<ResponseObject<DoctorResponse[]>>(`${this.apiBaseUrl}`)
     .pipe(
         catchError(this.handleError)
     );
+
+    doctor$ = (doctorId : number) : Observable<ResponseObject<DoctorResponse>> => { 
+        return this.http.get<ResponseObject<DoctorResponse>>(`${this.apiBaseUrl}/${doctorId}`)
+    }
  
     handleError(error : HttpErrorResponse) : Observable<never> {
         console.log(error);
