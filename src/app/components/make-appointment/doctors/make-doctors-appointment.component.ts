@@ -4,16 +4,16 @@ import { DoctorService } from '../../../services/doctor.service';
 import { ResponseObject } from '../../../responses/api.response';
 import { SpecialtyResponse } from '../../../responses/specialty.response';
 import { SpecialtyService } from '../../../services/specialty.service';
+import { DoctorsComponent } from "../../doctors/doctors.component";
 
 @Component({
   selector: 'app-make-doctors-appointment',
   standalone: true,
-  imports: [],
+  imports: [DoctorsComponent],
   templateUrl: './make-doctors-appointment.component.html',
   styleUrl: './make-doctors-appointment.component.scss'
 })
 export class MakeDoctorsAppointmentComponent implements OnInit {
-  doctors!: DoctorResponse[];
   specialties!: SpecialtyResponse[];
 
   constructor(
@@ -23,7 +23,6 @@ export class MakeDoctorsAppointmentComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getDoctors();
     this.getSpecialties();
   }
 
@@ -114,20 +113,11 @@ export class MakeDoctorsAppointmentComponent implements OnInit {
     return "Unknown";
   }
 
-  getDoctors() : void {
-    this.doctorService.doctors$.subscribe({
-      next: (response : ResponseObject) => {
-        this.doctors = response.data;
-      },
-      error: (error : any) => {
-        console.log(error);
-      }
-    })
-  }
+
 
   getSpecialties() : void {
     this.specialtyService.specialties$.subscribe({
-      next: (response : ResponseObject) => {
+      next: (response : ResponseObject<SpecialtyResponse[]>) => {
         this.specialties = response.data;
       },
       error: (error : any) => {

@@ -1,4 +1,6 @@
+const apiBase = 'http://localhost:8089';
 export const environment = {
     production: false,
-    apiBaseUrl: 'http://localhost:8089',        
+    apiBaseUrl: `${apiBase}`,  
+    apiBaseGetImage: `${apiBase}/users/images`
 };

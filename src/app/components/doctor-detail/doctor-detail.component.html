@@ -1,1 +1,39 @@
-<p>doctor-detail works!</p>
+<div class="breadcrumb">
+    <a [routerLink]="['/homepage']" routerLinkActive="router-link-active" class="breadcrumb-link" style="margin-right: 12px;">Trang chủ</a> /
+    <a [routerLink]="['../']" class="breadcrumb-link" style="margin-left: 12px;">Bác sĩ</a>
+</div>
+
+<div class="doctor-card">
+    <div class="doctor-header">
+        <div class="image-container">
+            <img [src]="apiBaseGetImage + '/' + doctor?.user?.img_url" alt="Doctor Photo" class="doctor-photo">
+        </div>
+        <div class="doctor-info">
+            <h2 class="doctor-title">{{doctor?.position}} {{doctor?.user?.name}}</h2>
+            <div class="doctor-details">
+                <span class="doctor-badge">Bác sĩ</span>
+                <span class="experience">{{doctor?.years_of_experience}} năm kinh nghiệm</span>
+            </div>
+            <div class="doctor-meta">
+                <p><strong>Chuyên khoa:</strong> @for (specialty of doctor?.specialties; track $index) { {{specialty.name}} {{$index !== (doctor?.specialties?.length || 0) - 1 ? ', ' : ''}} }
+                </p>
+                <!-- <p><strong>Chức vụ:</strong> Phó Giám đốc Bệnh viện Nhi đồng Thành phố</p> -->
+                <p><strong>Nơi công tác:</strong> {{doctor?.location?.name}}</p>
+            </div>
+        </div>
+        <button class="favorite-button">Yêu thích</button>
+    </div>
+    <div class="introduction-container">
+        <h5>Giới thiệu</h5>
+        <p>
+            {{doctor?.introduce}}
+        </p>
+    </div>
+    <div class="appointment-support">
+        <div class="support-text">
+            <span>Hỗ trợ đặt khám</span>
+            <span class="support-number">1900-0000</span>
+        </div>
+        <button class="book-now-button" routerLink="./appointment-detail">ĐẶT KHÁM NGAY</button>
+    </div>
+</div>
