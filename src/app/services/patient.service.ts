@@ -14,7 +14,7 @@ export class PatientService {
 
   constructor(private http : HttpClient) { }
 
-  register$ = (registerPatientDTO : RegisterPatientDTO) : Observable<ResponseObject> => {
-    return this.http.post<ResponseObject>(`${this.apiBaseUrl}/register`, registerPatientDTO);
+  register$ = (registerPatientDTO : RegisterPatientDTO) : Observable<ResponseObject<any>> => {
+    return this.http.post<ResponseObject<any>>(`${this.apiBaseUrl}/register`, registerPatientDTO);
   }
 }

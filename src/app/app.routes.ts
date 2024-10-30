@@ -8,6 +8,8 @@ import { HomepageContainerComponent } from './components/hompage-container/homep
 import { MakeClinicsAppointmentComponent } from './components/make-appointment/clinics/make-clinics-appointment.component';
 import { MakeDoctorsAppointmentComponent } from './components/make-appointment/doctors/make-doctors-appointment.component';
 import { MakeHospitalsAppointmentComponent } from './components/make-appointment/hospitals/make-hospitals-appointment.component';
+import { DoctorDetailComponent } from './components/doctor-detail/doctor-detail.component';
+import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
 
 export const routes: Routes = [
 
@@ -26,10 +28,14 @@ export const routes: Routes = [
             children: [
                 {path : '', redirectTo: "doctors", pathMatch: 'full'},
                 {path : 'clinics', component: MakeClinicsAppointmentComponent},
-                {path : 'doctors', component: MakeDoctorsAppointmentComponent},
+                {path : 'doctors', component: MakeDoctorsAppointmentComponent, children: [
+                    {path :'specialties', component: MakeDoctorsAppointmentComponent},
+                ]},
                 {path : 'hospitals', component: MakeHospitalsAppointmentComponent},
             ]
-        }
+        },
+        {path : 'make-appointment/doctors/:doctorId', component: DoctorDetailComponent},
+        {path : 'make-appointment/doctors/:doctorId/appointment-detail', component: AppointmentDetailComponent},
 
     ]},
     {path : 'login', component : LoginComponent},

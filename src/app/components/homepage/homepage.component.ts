@@ -10,14 +10,16 @@ import { LocationService } from '../../services/location.service';
 import { MedicalFacilityType } from '../../enums/facility-type';
 import { BannerComponent } from '../banner/banner.component';
 import { RouterLink } from '@angular/router';
+import { DoctorsComponent } from "../doctors/doctors.component";
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
   imports: [
     BannerComponent,
-    RouterLink
-  ],
+    RouterLink,
+    DoctorsComponent
+],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss'
 })
@@ -47,7 +49,7 @@ export class HomepageComponent implements OnInit{
 
   getDoctors() : void {
     this.doctorService.doctors$.subscribe({
-      next: (response : ResponseObject) => {
+      next: (response : ResponseObject<DoctorResponse[]>) => {
         this.doctors = response.data;
       },
       error: (error : any) => {
@@ -58,7 +60,7 @@ export class HomepageComponent implements OnInit{
 
   getSpecialties() : void {
     this.specialtyService.specialties$.subscribe({
-      next: (response : ResponseObject) => {
+      next: (response : ResponseObject<SpecialtyResponse[]>) => {
         this.specialties = response.data;
         this.specialtiesHead = this.specialties.splice(0, 6);
       },

@@ -9,6 +9,7 @@ import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faGear} from '@fortawesome/free-solid-svg-icons'
 import { UserService } from '../../services/user.service';
 import { TokenService } from '../../services/token.service';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class HeaderComponent implements OnInit{
   faBell = faBell;
   faGear = faGear;
   
-  userResponse?: UserResponse;
+  apiBaseGetImage : string = environment.apiBaseGetImage;
+  userResponse?: any;
 
   constructor(
     private localStorageService : LocalStorageService,

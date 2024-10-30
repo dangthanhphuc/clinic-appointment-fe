@@ -1,0 +1,134 @@
+<div class="container" style="margin-top: 120px; margin-bottom: 60px;">
+
+    <div class="row row-cols-2">
+        <div class="col-8">
+            <div class="collapse-container">
+                <!-- Tiêu đề phần collapse -->
+                <div class="collapse-header" (click)="isDateOpen = !isDateOpen">
+                    <div class="header-title">
+                        <span class="icon">1</span>
+                        <span>Ngày và giờ khám</span>
+                    </div>
+                    <span class="arrow" [class.open]="isDateOpen">▼</span>
+                </div>
+
+                <!-- Nội dung collapse -->
+                @if (isDateOpen) {
+                <div class="collapse-content">
+                    <app-working-date (dateTimeCurrent)="eventDateTimeChange($event)"></app-working-date>
+                </div>
+                }
+            </div>
+
+            <div class="collapse-container mt-4">
+                <!-- Tiêu đề phần collapse -->
+                <div class="collapse-header" (click)="isPatientProfileOpen = !isPatientProfileOpen">
+                    <div class="header-title">
+                        <span class="icon">2</span>
+                        <span>Hồ sơ bệnh nhân</span>
+                    </div>
+                    <span class="arrow" [class.open]="isPatientProfileOpen">▼</span>
+                </div>
+
+                <!-- Nội dung collapse -->
+                @if (isPatientProfileOpen) {
+                <div class="collapse-content">
+                    <div class="patient-card">
+                        <div class="card-header">
+                            <div class="profile">
+                                <div class="avatar">PH</div>
+                                <div class="info">
+                                    <p class="name">DANG THANH PHUC</p>
+                                    <p class="dob">01/01/1990</p>
+                                </div>
+                            </div>
+                            <span class="arrow"></span>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="detail">
+                                <span class="label">Mã bệnh nhân</span>
+                                <span class="value">YMP241788900</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Họ và tên</span>
+                                <span class="value">DANG THANH PHUC</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Giới tính</span>
+                                <span class="value">Nam</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Ngày sinh</span>
+                                <span class="value">01/01/1990</span>
+                            </div>
+                            <div class="detail">
+                                <span class="label">Số điện thoại</span>
+                                <span class="value">0819419878</span>
+                            </div>
+                        </div>
+                        <div class="additional-info" style="border-top: 1px black solid;">
+                            <p>Thông tin bổ sung (không bắt buộc)</p>
+                            <textarea [(ngModel)]="additionalInfo" placeholder="Triệu chứng, thuốc đang dùng, tiền sử, ..."></textarea>
+                        </div>
+                        <div class="additional-info">
+                            <p>Kiểu cuộc hẹn</p>
+                            <select class="dropdown-select" [(ngModel)]="selectedAppointmentType">
+                                <option value="0" disabled selected>Chọn kiểu hẹn</option>
+                                @for (type of appointmentTypes; track $index) {
+                                    <option [value]="type.id">{{type.name}}</option>
+                                }
+                            
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+                }
+
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="booking-card">
+                <div class="card-header">
+                    <h3>Thông tin đặt khám</h3>
+                    <span class="arrow">▼</span>
+                </div>
+
+                <div class="card-content">
+                    <div class="doctor-info">
+                        <div class="image-container">
+                            <img [src]="apiBaseGetImage + '/' + doctor?.user?.img_url" alt="Doctor Image" />
+                        </div>
+                        <div class="doctor-details">
+                            <p class="doctor-name">{{doctor?.user?.name}}</p>
+                            <p class="doctor-address">{{doctor?.location?.address}}</p>
+                        </div>
+                    </div>
+
+                    <div class="appointment-details">
+                        <div class="detail">
+                            <span>Ngày khám</span>
+                            <span>29/10/2024</span>
+                        </div>
+                        <div class="detail">
+                            <span>Khung giờ</span>
+                            <span>17:55-18:00</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="confirm-button" [class.disabled]="isInvalid()" (click)="onSubmit()">Xác nhận đặt khám</button>
+
+                </div>
+
+                <p class="disclaimer">
+                    Bằng cách nhấn nút xác nhận, bạn đã đồng ý với các điều khoản và điều kiện đặt khám
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

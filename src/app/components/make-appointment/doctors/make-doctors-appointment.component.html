@@ -7,25 +7,9 @@
             Xem tất cả
         </button>
     </div>
-    <div class="items">
-        @for (doctor of doctors; track $index) {
-        <div class="card item doctor-item">
-            <!-- Test image -->
-            <img src="http://dummyimage.com/241x100.png/cc0000/ffffff" alt="..." class="card-img-top card-image-custom">
 
-            <div class="card-body section-body">
-                <h4 class="card-title-custom">{{doctor.user.name}}</h4>
-                <p class="card-text m-0">{{doctor.position}}</p>
-                <p class="card-text" style="font-size: 14px;">{{doctor.location.name}}</p>
-            </div>
-            <div class="section-footer">
-                <a href="#" class="card-link">
-                    <span>Đặt khám ngay</span>
-                </a>
-            </div>
-        </div>
-        }
-    </div>
+    <app-doctors></app-doctors>
+
 </div>
 
 <div class="specialties-section">
