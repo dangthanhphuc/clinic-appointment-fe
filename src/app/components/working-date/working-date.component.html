@@ -1,0 +1,24 @@
+<div class="container">
+    <!-- Thanh cuộn ngày -->
+    <button class="scroll-btn prev" (click)="scrollLeft()">❮</button>
+
+    <div class="date-scroll" #dateScroll>
+        @for (date of dates; track $index) {
+        <div class="date" [class.date-active]="$index == indexDateActive" (click)="indexDateActiveChange($index)">
+            <span>{{date.day}}</span>
+            <p>{{date.slots}} khung giờ</p>
+        </div>
+        }
+    </div>
+
+    <button class="scroll-btn next" (click)="scrollRight()">❯</button>
+
+    <!-- Khung thời gian -->
+    <div class="time-section">
+        <div class="time-grid">
+            @for (time of times; track $index) {
+            <div class="time-slot" [class.time-active]="$index == indexTimeActive" (click)="indexTimeActiveChange($index)">{{time}}</div>
+            }
+        </div>
+    </div>
+</div>

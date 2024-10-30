@@ -12,6 +12,9 @@ import { TokenService } from '../../services/token.service';
 import { switchMap } from 'rxjs';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { CommonModule } from '@angular/common';
+import { LoginResponse } from '../../responses/login.response';
+import { UserResponse } from '../../responses/user.response';
+import { DoctorResponse } from '../../responses/doctor.response';
 
 @Component({
   selector: 'app-login',
@@ -69,7 +72,7 @@ export class LoginComponent {
 
   login(loginDTO : LoginDTO) : void {
     this.userService.login$(loginDTO).pipe(
-      switchMap((response : ResponseObject) => {
+      switchMap((response : ResponseObject<LoginResponse>) => {
          if(response.statusCode == HttpStatusCode.Ok) {
           this.tokenService.setToken(response.data.token);
           // Gọi aip để lấy thông tin chi tiết user thông qua user id
@@ -79,14 +82,14 @@ export class LoginComponent {
         }
       })
     ).subscribe({
-      next: (response : ResponseObject) => {
+      next: (response : ResponseObject<any>) => {
+        debugger
         this.localStorageService.save("user", response.data);
         this.userService.updatesUserDetail(response.data);
         this.toastService.showToast("Thành công", "Đăng nhập thành công", "success");
         this.router.navigate(['/homepage']);
       },
       error: (error : any) => {
-        console.error('An error occurred:', error);
         this.toastService.showToast("Lỗi", error.error.message, 'error');
       }
     })

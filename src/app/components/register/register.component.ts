@@ -70,7 +70,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     const registerPatientDTO : RegisterPatientDTO = new RegisterPatientDTO(this.registerForm.value);
     this.patientService.register$(registerPatientDTO).subscribe({
-      next: (response : ResponseObject) => {
+      next: (response : ResponseObject<any>) => {
         debugger
         if(response.statusCode === HttpStatusCode.Ok) {
           debugger

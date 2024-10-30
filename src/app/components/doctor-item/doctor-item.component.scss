@@ -1,0 +1,29 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.176);
+    border-radius: 6px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.card-title-custom {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.section-body {
+    padding: 16px;
+    text-align: center;
+    flex: 1 1 auto;
+}
+
+.section-footer {
+    padding: 8px 16px;
+    border-top: 1px solid black;
+}
+
+.card-image-custom {
+    height: 50%;
+    object-fit: cover;
+}
