@@ -11,7 +11,7 @@ export class DoctorService {
 
     private readonly apiBaseUrl: string = `${environment.apiBaseUrl}/doctors`;
 
-    constructor(
+    constructor(    
         private http : HttpClient
     ){}
 
